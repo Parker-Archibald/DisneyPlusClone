@@ -1,3 +1,5 @@
+'use client'
+
 import MoviesCarousel from "@/components/MoviesCarousel";
 import { getDiscoverMovies } from "@/lib/getMovies";
 
