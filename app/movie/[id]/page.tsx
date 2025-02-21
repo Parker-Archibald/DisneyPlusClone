@@ -4,13 +4,9 @@ import Image from "next/image";
 import { PlayIcon } from "lucide-react";
 import MoviesCarousel from "@/components/MoviesCarousel";
 
-type Props = {
-    params: {
-        id: string
-    }
-}
+const IndividualMovie = async ({ params }: { params: Promise<{ id: string }> }) => {
 
-const IndividualMovie = async ({ params: { id } }: Props) => {
+    const id = (await params).id
 
     const url = `https://api.themoviedb.org/3/movie/${id}?language=en-US`;
 
@@ -31,8 +27,6 @@ const IndividualMovie = async ({ params: { id } }: Props) => {
     const suggestedUrl = `https://api.themoviedb.org/3/movie/${id}/recommendations?language=en-US&page=1`;
     const suggestedResponse = await fetch(suggestedUrl, options)
     const suggestedData = (await suggestedResponse.json());
-
-    console.log(suggestedData)
 
     return (
         <div className="relative overflow-hidden lg:-mt-40 cursor-pointer">
