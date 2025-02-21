@@ -26,7 +26,7 @@ const Search = async ({ params: { term } }: Props) => {
             <div className="flex flex-col space-y-4 md:mt-24">
                 <h1 className="text-4xl md:text-6xl font-bold px-10 py-8">Results for {termToUse}</h1>
                 <MoviesCarousel title="Movies" movies={movies} isVertical />
-                <MoviesCarousel title="You may also like" movies={movies} />
+                <MoviesCarousel title="You may also like" movies={popularMovies} />
             </div>
         </div>
     )
